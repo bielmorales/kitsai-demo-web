@@ -39,7 +39,6 @@ function DemoContent() {
     }
   );
 
-  if (isLoading) return <div className="text-center py-4">Loading...</div>;
   if (isError)
     return (
       <div className="text-center py-4 text-red-500">An error occurred</div>
@@ -65,15 +64,21 @@ function DemoContent() {
         </button>
       </div>
       <h2 className="text-2xl font-semibold text-blue-500 mb-2">TTS List</h2>
-      <div className="container mx-auto px-2">
-        <ItemList items={data?.data || []} />
-        <hr className="my-2 border-t border-gray-200" />
-        <Pagination
-          lastPage={data?.lastPage || 1}
-          currentPage={data?.currentPage || 1}
-          onPageChange={setPage}
-          onRefresh={refetch}
-        />
+      <div className="container mx-auto px-2 min-h-[400px]">
+        {isLoading ? (
+          "Loading..."
+        ) : (
+          <>
+            <ItemList items={data?.data || []} />
+            <hr className="my-2 border-t border-gray-200" />
+            <Pagination
+              lastPage={data?.lastPage || 1}
+              currentPage={data?.currentPage || 1}
+              onPageChange={setPage}
+              onRefresh={refetch}
+            />
+          </>
+        )}
       </div>
     </div>
   );
