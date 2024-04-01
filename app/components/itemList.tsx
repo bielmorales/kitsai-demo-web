@@ -1,32 +1,37 @@
 import React from "react";
 
+interface Item {
+  id: string;
+  status: string;
+  createdAt: string;
+  outputFileUrl?: string;
+}
+
 interface ItemListProps {
   items: Item[];
 }
 
 const ItemList: React.FC<ItemListProps> = ({ items }) => {
   return (
-    <ul className="space-y-2 mb-4">
+    <ul className="space-y-2 mb-4 rounded-lg">
       {items.map((item) => (
         <li
           key={item.id}
-          className="flex flex-col py-4 rounded-lg bg-gray-100 shadow-sm hover:shadow transition-shadow duration-300 ease-in-out"
+          className="flex flex-col py-4 rounded-lg bg-blue-200 shadow-sm  transition-shadow duration-300 ease-in-out"
         >
-          <div className="flex justify-between items-center px-4">
+          <div className="flex justify-between items-center px-4 text-sm">
             <span>
               Status:{" "}
               <span
                 className={`font-semibold ${
-                  item.status === "success"
-                    ? "text-green-500"
-                    : "text-orange-500"
+                  item.status === "success" ? "text-blue-500" : "text-blue-400"
                 }`}
               >
                 {item.status.charAt(0).toUpperCase() + item.status.slice(1)}
               </span>
             </span>
-            <span className="text-sm text-gray-600">
-              Created:{" "}
+            <span className="text-sm text-blue-800">
+              {/* Created:{" "} */}
               {new Date(item.createdAt).toLocaleDateString(undefined, {
                 year: "numeric",
                 month: "long",

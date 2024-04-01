@@ -18,9 +18,9 @@ export const Pagination: React.FC<PaginationProps> = ({
       <button
         className={`px-4 py-2 rounded-lg shadow ${
           currentPage <= 1
-            ? "text-gray-400 bg-gray-200 cursor-not-allowed"
-            : "text-white bg-blue-500 hover:bg-blue-600"
-        } transition duration-300 ease-in-out`}
+            ? "text-blue-500 bg-blue-300 cursor-not-allowed" // Improved disabled state
+            : "text-white bg-blue-500 hover:bg-blue-600 transition duration-300 ease-in-out"
+        }`}
         onClick={() => currentPage > 1 && onPageChange(currentPage - 1)}
         disabled={currentPage <= 1}
       >
@@ -34,9 +34,9 @@ export const Pagination: React.FC<PaginationProps> = ({
       <button
         className={`px-4 py-2 rounded-lg shadow ${
           currentPage >= lastPage
-            ? "text-gray-400 bg-gray-200 cursor-not-allowed"
-            : "text-white bg-blue-500 hover:bg-blue-600"
-        } transition duration-300 ease-in-out`}
+            ? "text-blue-500 bg-blue-300 cursor-not-allowed" // Improved disabled state
+            : "text-white bg-blue-500 hover:bg-blue-600 transition duration-300 ease-in-out"
+        }`}
         onClick={() => currentPage < lastPage && onPageChange(currentPage + 1)}
         disabled={currentPage >= lastPage}
       >
@@ -45,7 +45,7 @@ export const Pagination: React.FC<PaginationProps> = ({
 
       <button
         onClick={onRefresh}
-        className="bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-full transition duration-150 ease-in-out"
+        className="bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-full shadow transition duration-150 ease-in-out flex items-center justify-center"
         aria-label="Refresh List"
       >
         <svg

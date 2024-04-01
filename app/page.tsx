@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Demo from "./components/demo";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Home() {
   return (
@@ -20,6 +22,7 @@ export default function Home() {
       <footer className="text-center text-white mt-10">
         Made by: <b>Gabriel dos Reis Morales</b>
       </footer>
+      <ToastContainer />
     </main>
   );
 }
